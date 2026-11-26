@@ -1,0 +1,27 @@
+{
+  "name": "dsh-magpie-sync",
+  "version": "0.2.0",
+  "description": "从 Magpie 一键或逐个同步模型上下文、输出上限、输入能力与思维档位，支持差异检测、预览与撤销。",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/libo0118/dsh-magpie-sync.git"
+  },
+  "homepage": "https://github.com/libo0118/dsh-magpie-sync#readme",
+  "keywords": ["dsh", "dsh-plugin", "cordis", "magpie", "models"],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": { ".": "./lib/index.js", "./client": "./lib/client.js", "./package.json": "./package.json" },
+  "files": ["lib", "cordis.patch.yml", "README.md", "LICENSE"],
+  "engines": { "node": ">=22.19.0", "dsh": ">=0.2.1-rc.5 <0.3.0" },
+  "peerDependencies": { "@deepseek-ai/schemastery": "^3.18.2" },
+  "scripts": { "test": "node --test test/*.test.mjs" },
+  "dsh": {
+    "manifestVersion": 1,
+    "minVersion": "0.2.1-rc.5",
+    "testedVersions": ["0.2.1-rc.5", "0.2.2-rc.3"],
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": { "platform": "web", "inject": ["@deepseek-ai/dsh-client-connection", "@deepseek-ai/dsh-client-ui-settings", "@deepseek-ai/dsh-client-ui-settings-models", "@deepseek-ai/dsh-client-ui-session", "@deepseek-ai/dsh-client-ui-model-selection"] },
+    "meta": { "title": "Magpie 模型同步" }
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,7 @@
+node_modules/
+tools/test-deps/node_modules/
+dist/
+*.tgz
+evidence/live-verification.json
+evidence/profile-manifest-before-*.json
+.DS_Store
